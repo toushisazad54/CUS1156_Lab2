@@ -12,11 +12,39 @@ public class UniqueWords
 	  int count = 0;
 	  
       for (int i = 0; i < list.size(); i++)
-      {		 for (int j = 0; j < list.size(); j++)
-		 {
-			
-		 }
+      {		
+    	  // Keep track of the frequency of words that appear
+    	  int seen = 0;
+    	  for (int j = 0; j < list.size(); j++)
+		  {
+			if (list.get(i).equals(list.get(j)))
+			{
+				seen++;
+			}
+		  }
+    	  // Only count words that are unique
+    	  if (seen == 1) {
+				count++;
+    	  }
       }
+      
+      /** Another way - to determine the single instance of words and omitting its duplicate from total count - 
+       * @return 5
+       
+       ArrayList<String> uniqueList = new ArrayList<>();
+       
+       for (int i = 0; i < list.size(); i++)
+       {	
+    	   if (!uniqueList.contains(list.get(i))) {
+    		   uniqueList.add(list.get(i));
+    	   }
+       }
+       
+       count = uniqueList.size();
+      
+       return count;
+       */
+      
 	  return count;
    }
 
